@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b16">
+<meta name="description" content="Supernova is an independent technology initiative building AI, software and innovative digital technologies from Nepal.">
+<title>Supernova — Intelligence. Innovation. Beyond.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+:root {
+--bg:#080b16;
+--surface:#101629;
+--surface2:#151d32;
+--text:#f4f6ff;
+--muted:#929bb4;
+--line:rgba(255,255,255,.09);
+--accent:#8b7cff;
+--accent2:#48c8ff;
+}
+body.light {
+--bg:#f6f7fc;
+--surface:#ffffff;
+--surface2:#eef0fa;
+--text:#11172b;
+--muted:#65708a;
+--line:rgba(20,30,60,.12);
+}
+• {box-sizing:border-box}
+html {scroll-behavior:smooth;scroll-padding-top:90px}
+body {
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family:Inter,sans-serif;
+transition:background .3s,color .3s;
+overflow-x:hidden;
+}
+h1,h2,h3,.brand {font-family:"Space Grotesk",sans-serif}
+a {text-decoration:none;color:inherit}
+button {font:inherit;cursor:pointer}
+.container {width:min(1160px,90%);margin:auto}
+.muted {color:var(--muted)}
+.gradient {
+background:linear-gradient(110deg,#9c8aff,#53caff,#9b8aff);
+background-clip:text;
+-webkit-background-clip:text;
+color:transparent;
+}
+.nav {
+position:fixed;top:0;left:0;right:0;z-index:100;
+backdrop-filter:blur(20px);
+background:color-mix(in srgb,var(--bg) 82%,transparent);
+border-bottom:1px solid var(--line);
+}
+.nav-inner {
+height:76px;display:flex;align-items:center;
+justify-content:space-between;
+}
+.brand {font-weight:800;font-size:23px;letter-spacing:-1px}
+.brand-mark {
+display:inline-grid;place-items:center;
+width:35px;height:35px;border-radius:11px;
+background:linear-gradient(135deg,#806bff,#37bfff);
+color:white;margin-right:9px;
+}
+.nav-links {display:flex;gap:30px;align-items:center}
+.nav-links a {font-size:13px;color:var(--muted);transition:.2s}
+.nav-links a:hover {color:var(--text)}
+.nav-actions {display:flex;gap:10px;align-items:center}
+.icon-btn {
+width:40px;height:40px;border:1px solid var(--line);
+border-radius:12px;background:var(--surface);
+color:var(--text);
+}
+.primary-btn {
+border:0;border-radius:12px;padding:13px 20px;
+color:white;font-weight:700;font-size:13px;
+background:linear-gradient(110deg,#7967ed,#329eea);
+box-shadow:0 8px 30px rgba(103,104,245,.2);
+transition:transform .2s,box-shadow .2s;
+}
+.primary-btn:hover {transform:translateY(-3px);box-shadow:0 12px 35px #6656aa55}
+.secondary-btn {
+padding:12px 19px;border:1px solid var(--line);
+border-radius:12px;font-size:13px;font-weight:600;
+background:var(--surface);color:var(--text);
+}
+.mobile-toggle {display:none}
+.hero {
+min-height:790px;position:relative;
+display:flex;align-items:center;overflow:hidden;
+padding:140px 0 100px;
+}
+.hero:before {
+content:"";position:absolute;width:650px;height:650px;
+right:-150px;top:80px;border-radius:50%;
+background:radial-gradient(circle,#6552d52a,transparent 68%);
+filter:blur(20px);
+}
+.hero:after {
+content:"";position:absolute;width:500px;height:500px;
+left:-250px;bottom:-250px;border-radius:50%;
+background:radial-gradient(circle,#268ad52a,transparent 70%);
+}
+.hero-grid {
+display:grid;grid-template-columns:1.1fr .9fr;
+align-items:center;gap:50px;position:relative;z-index:2;
+}
+.eyebrow {
+display:inline-flex;align-items:center;gap:9px;
+border:1px solid var(--line);padding:9px 14px;
+border-radius:50px;font-size:11px;color:var(--muted);
+background:var(--surface);
+}
+.dot {width:7px;height:7px;border-radius:50%;background:#49d9a1;box-shadow:0 0 12px #49d9a1}
+.hero h1 {
+font-size:clamp(48px,7vw,82px);
+line-height:1.04;letter-spacing:-4px;
+margin:26px 0 22px;font-weight:700;
+}
+.hero-description {
+font-size:16px;line-height:1.9;color:var(--muted);
+max-width:520px;
+}
+.hero-buttons {display:flex;gap:13px;margin-top:32px;flex-wrap:wrap}
+.hero-note {font-size:11px;color:var(--muted);margin-top:35px}
+.visual {
+min-height:440px;display:grid;place-items:center;
+position:relative;
+}
+.orb {
+width:290px;height:290px;border-radius:50%;
+position:relative;
+background:
+radial-gradient(circle at 30% 25%,#c2b8ff,transparent 20%),
+radial-gradient(circle at 65% 65%,#2788dc,#4e3bba 40%,#11162c 72%);
+box-shadow:0 0 100px #6757d44a,inset -25px -20px 60px #070b20;
+animation:float 6s ease-in-out infinite;
+}
+.orb:before,.orb:after {
+content:"";position:absolute;inset:-40px;
+border:1px solid #9889ff55;border-radius:50%;
+transform:rotateX(68deg) rotate(-25deg);
+}
+.orb:after {inset:-65px;transform:rotateX(68deg) rotate(55deg);border-color:#42c8ff55}
+@keyframes float {50%{transform:translateY(-18px) rotate(5deg)}}
+.orb-core {
+position:absolute;inset:0;display:grid;place-items:center;
+font-size:75px;color:#fff;text-shadow:0 0 40px #fff;
+}
+.floating-card {
+position:absolute;padding:14px 18px;
+border:1px solid var(--line);border-radius:15px;
+background:color-mix(in srgb,var(--surface) 85%,transparent);
+backdrop-filter:blur(20px);
+font-size:12px;box-shadow:0 15px 40px #0003;
+}
+.floating-card strong {display:block;font-size:14px;margin-bottom:4px}
+.card-one {top:35px;right:0}
+.card-two {bottom:40px;left:0}
+.section {padding:105px 0}
+.section-heading {max-width:680px;margin-bottom:48px}
+.kicker {
+color:#a395ff;text-transform:uppercase;
+letter-spacing:2px;font-size:10px;font-weight:800;
+}
+.section-heading h2 {
+font-size:clamp(34px,5vw,50px);
+letter-spacing:-2px;margin:15px 0;
+}
+.section-heading p {color:var(--muted);line-height:1.8;font-size:14px}
+.about-grid {display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-panel {
+background:linear-gradient(135deg,#7060e51b,#35baff0c);
+border:1px solid var(--line);border-radius:25px;padding:38px;
+}
+.about-panel h3 {font-size:28px;margin:0 0 15px}
+.about-panel p {color:var(--muted);font-size:13px;line-height:1.9}
+.values {display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.value {
+padding:20px;border:1px solid var(--line);
+background:var(--surface);border-radius:17px;
+}
+.value .emoji {font-size:25px}
+.value h4 {font-size:14px;margin:14px 0 7px}
+.value p {font-size:11px;color:var(--muted);line-height:1.7;margin:0}
+.projects {
+display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.project {
+background:var(--surface);border:1px solid var(--line);
+border-radius:19px;overflow:hidden;transition:.3s;
+}
+.project:hover {transform:translateY(-7px);border-color:#897aff88}
+.project-art {
+height:155px;display:grid;place-items:center;
+font-size:52px;position:relative;overflow:hidden;
+}
+.art-one {background:linear-gradient(135deg,#29205e,#193e65)}
+.art-two {background:linear-gradient(135deg,#1c3852,#253c76)}
+.art-three {background:linear-gradient(135deg,#492b63,#153e56)}
+.project-content {padding:23px}
+.project-content h3 {font-size:18px;margin:0 0 10px}
+.project-content p {font-size:12px;color:var(--muted);line-height:1.8;min-height:65px}
+.tags {display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}
+.tag {
+font-size:10px;padding:6px 9px;border-radius:7px;
+background:var(--surface2);color:var(--muted);
+}
+.tech-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.tech {
+border:1px solid var(--line);background:var(--surface);
+border-radius:14px;padding:22px;text-align:center;
+font-size:12px;font-weight:600;
+}
+.tech span {display:block;font-size:25px;margin-bottom:12px}
+.team-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.member {
+padding:23px;background:var(--surface);
+border:1px solid var(--line);border-radius:17px;
+}
+.avatar {
+width:49px;height:49px;border-radius:15px;
+display:grid;place-items:center;
+background:linear-gradient(135deg,#806aff,#37b8e8);
+color:white;font-size:20px;font-weight:800;
+}
+.member h3 {font-size:14px;margin:16px 0 5px}
+.member p {font-size:11px;color:var(--muted);margin:0}
+.collab {
+border:1px solid var(--line);border-radius:27px;
+padding:65px 30px;text-align:center;
+background:radial-gradient(ellipse at top,#6150b62a,transparent 65%),var(--surface);
+}
+.collab h2 {font-size:clamp(32px,5vw,49px);letter-spacing:-2px}
+.collab p {color:var(--muted);font-size:14px;line-height:1.8;max-width:550px;margin:15px auto 27px}
+.footer {padding:35px 0;border-top:1px solid var(--line)}
+.footer-inner {display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer p {font-size:11px;color:var(--muted)}
+.footer-links {display:flex;gap:20px;font-size:11px;color:var(--muted)}
+.reveal {opacity:0;transform:translateY(25px);transition:opacity .7s,transform .7s}
+.reveal.visible {opacity:1;transform:translateY(0)}
+#mobile-menu {
+display:none;background:var(--surface);padding:15px 5%;
+border-top:1px solid var(--line);
+}
+#mobile-menu a {display:block;padding:12px;color:var(--muted);font-size:14px}
+@media(max-width:850px) {
+.nav-links {display:none}
+.mobile-toggle {display:block}
+.hero-grid {grid-template-columns:1fr}
+.hero {padding-top:125px}
+.visual {min-height:370px}
+.projects {grid-template-columns:1fr 1fr}
+.team-grid {grid-template-columns:1fr 1fr}
+.about-grid {grid-template-columns:1fr}
+}
+@media(max-width:550px) {
+.hero h1 {letter-spacing:-2px}
+.projects {grid-template-columns:1fr}
+.tech-grid {grid-template-columns:1fr 1fr}
+.values {grid-template-columns:1fr 1fr}
+.footer-inner {flex-direction:column;text-align:center}
+.card-one {right:-5px}
+.card-two {left:-5px}
+}
+</style>
+</head>
+
+<body>
+<nav class="nav">
+<div class="container nav-inner">
+<a href="#" class="brand"><span class="brand-mark">S</span>SUPERNOVA</a>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#technology">Technology</a>
+<a href="#team">Team</a>
+<a href="#contact">Contact</a>
+</div>
+<div class="nav-actions">
+<button class="icon-btn" id="theme" aria-label="Toggle theme">☀</button>
+<a href="#projects" class="primary-btn">Explore projects ↗</a>
+<button class="icon-btn mobile-toggle" id="menu-btn">☰</button>
+</div>
+</div>
+<div id="mobile-menu">
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#technology">Technology</a>
+<a href="#team">Team</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<header class="hero">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow"><span class="dot"></span> INDEPENDENT TECHNOLOGY INITIATIVE</div>
+<h1>Building the<br> <span class="gradient">next frontier.</span></h1>
+<p class="hero-description">
+We explore the boundaries of artificial intelligence,
+software engineering and emerging technologies.
+Built with curiosity. Driven by innovation. From Nepal to the world.
+</p>
+<div class="hero-buttons">
+<a href="#projects" class="primary-btn">Discover our work ↗</a>
+<a href="#about" class="secondary-btn">Explore Supernova</a>
+</div>
+<p class="hero-note">INDEPENDENT THINKING · OPEN INNOVATION · FUTURE TECHNOLOGY</p>
+</div>
+<div class="visual">
+<div class="orb"><div class="orb-core">✦</div></div>
+<div class="floating-card card-one">
+<strong>✧ Intelligence</strong>
+<span class="muted">Exploring new possibilities</span>
+</div>
+<div class="floating-card card-two">
+<strong>⌘ Engineering</strong>
+<span class="muted">Building beyond boundaries</span>
+</div>
+</div>
+</div>
+</header>
+
+<main>
+<section class="section" id="about">
+<div class="container about-grid">
+<div class="section-heading reveal">
+<div class="kicker">01 / WHO WE ARE</div>
+<h2>Ideas become<br><span class="gradient">possibilities.</span></h2>
+<p>
+Supernova is an independent technology initiative focused on
+developing experimental AI systems, software and digital tools.
+We believe meaningful innovation begins with curiosity,
+experimentation and the courage to build.
+</p>
+<p class="muted">Our ambition is to contribute to a future where technology is more accessible, useful and innovative.</p>
+</div>
+<div class="values reveal">
+<div class="value"><span class="emoji">🧠</span><h4>Intelligence</h4><p>Exploring AI and language technologies.</p></div>
+<div class="value"><span class="emoji">⚙️</span><h4>Engineering</h4><p>Turning technical ideas into working systems.</p></div>
+<div class="value"><span class="emoji">🔬</span><h4>Research</h4><p>Experimenting, measuring and learning.</p></div>
+<div class="value"><span class="emoji">🌍</span><h4>Open Innovation</h4><p>Sharing knowledge and encouraging collaboration.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="projects">
+<div class="container">
+<div class="section-heading reveal">
+<div class="kicker">02 / OUR WORK</div>
+<h2>Projects that explore<br><span class="gradient">what's possible.</span></h2>
+<p>Some of the research and engineering directions within the Supernova ecosystem.</p>
+</div>
+<div class="projects">
+<article class="project reveal">
+<div class="project-art art-one">◈</div>
+<div class="project-content">
+<h3>Terai LLM</h3>
+<p>Experimental language-model research focused on Nepali language generation and processing.</p>
+<div class="tags"><span class="tag">AI</span><span class="tag">NLP</span><span class="tag">Research</span></div>
+</div>
+</article>
+<article class="project reveal">
+<div class="project-art art-two">⬡</div>
+<div class="project-content">
+<h3>Supernova Prism</h3>
+<p>Exploring image-to-3D reconstruction and experimental visual computing.</p>
+<div class="tags"><span class="tag">Computer Vision</span><span class="tag">3D</span></div>
+</div>
+</article>
+<article class="project reveal">
+<div class="project-art art-three">⌘</div>
+<div class="project-content">
+<h3>Supernova Language Tools</h3>
+<p>Tools for tokenization, language detection and text normalization.</p>
+<div class="tags"><span class="tag">NLP</span><span class="tag">Python</span><span class="tag">Tools</span></div>
+</div>
+</article>
+</div>
+<p class="muted" style="font-size:11px;margin-top:20px">Project descriptions represent development directions; availability and maturity may vary.</p>
+</div>
+</section>
+
+<section class="section" id="technology">
+<div class="container">
+<div class="section-heading reveal">
+<div class="kicker">03 / TECHNOLOGY</div>
+<h2>Our engineering<br><span class="gradient">landscape.</span></h2>
+<p>Technologies and disciplines that shape our experiments and development work.</p>
+</div>
+<div class="tech-grid">
+<div class="tech reveal"><span>🧠</span>Artificial Intelligence</div>
+<div class="tech reveal"><span>🐍</span>Python</div>
+<div class="tech reveal"><span>⚛️</span>Web Engineering</div>
+<div class="tech reveal"><span>🔤</span>Language Technology</div>
+<div class="tech reveal"><span>👁️</span>Computer Vision</div>
+<div class="tech reveal"><span>🦀</span>Systems Engineering</div>
+<div class="tech reveal"><span>📊</span>Data Science</div>
+<div class="tech reveal"><span>🔬</span>Experimental Research</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="team">
+<div class="container">
+<div class="section-heading reveal">
+<div class="kicker">04 / PEOPLE</div>
+<h2>Driven by <span class="gradient">curiosity.</span></h2>
+<p>Technology is built by people who are willing to explore, experiment and collaborate.</p>
+</div>
+<div class="team-grid">
+<div class="member reveal">
+<div class="avatar">S</div>
+<h3>Suraj Bishwakarma</h3>
+<p>Founder</p>
+</div>
+<div class="member reveal">
+<div class="avatar">T</div>
+<h3>Tanmay Shah</h3>
+<p>Co-founder</p>
+</div>
+<div class="member reveal">
+<div class="avatar">P</div>
+<h3>Pramesh Shrestha</h3>
+<p>Developer</p>
+</div>
+<div class="member reveal">
+<div class="avatar">K</div>
+<h3>Kewal Prasad Mahato</h3>
+<p>Advisor</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="collab reveal">
+<div class="kicker">05 / CONNECT WITH US</div>
+<h2>Let's explore what's <span class="gradient">next.</span></h2>
+<p>
+Interested in technology, research or collaboration?
+Connect with Supernova and explore opportunities to build something meaningful.
+</p>
+<a class="primary-btn" href="mailto:supernova-founder@supernova11c.aclclouds.online">Contact Supernova ↗</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="container footer-inner">
+<div>
+<a href="#" class="brand"><span class="brand-mark">S</span>SUPERNOVA</a>
+<p>Independent technology. Infinite possibilities.</p>
+</div>
+<div class="footer-links">
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+<p>© <span id="year"></span> Supernova. All rights reserved.</p>
+</div>
+</footer>
+
+<script type="module">
+import React from "https://esm.sh/react@18.3.1";
+import { createRoot } from "https://esm.sh/react-dom@18.3.1/client";
+import { motion, MotionConfig } from "https://esm.sh/framer-motion@11.11.17?external=react,react-dom";
+
+// Framer Motion powered enhancement layer.
+// The static HTML remains usable if this optional enhancement fails.
+const MotionEnhancements = () => {
+React.useEffect(() => {
+document.querySelectorAll(".reveal").forEach((el, i) => {
+el.dataset.motionReady = "true";
+el.style.transitionDelay = ${(i % 4) * 80}ms;
+});
+}, []);
+
+return React.createElement(
+React.Fragment,
+null,
+React.createElement(motion.div, {
+initial: { opacity: 0 },
+animate: { opacity: 1 },
+transition: { duration: 0.7 },
+style: { position: "absolute", pointerEvents: "none" }
+})
+);
+};
+
+const mount = document.createElement("div");
+mount.id = "motion-root";
+document.body.appendChild(mount);
+
+createRoot(mount).render(
+React.createElement(MotionConfig, { reducedMotion: "user" },
+React.createElement(MotionEnhancements)
+)
+);
+</script>
+
+<script>
+// Theme switch
+const themeButton = document.getElementById("theme");
+themeButton.addEventListener("click", () => {
+document.body.classList.toggle("light");
+themeButton.textContent =
+document.body.classList.contains("light") ? "☾" : "☀";
+localStorage.setItem(
+"supernova-theme",
+document.body.classList.contains("light") ? "light" : "dark"
+);
+});
+
+if (localStorage.getItem("supernova-theme") === "light") {
+document.body.classList.add("light");
+themeButton.textContent = "☾";
+}
+
+// Mobile menu
+const menuButton = document.getElementById("menu-btn");
+const menu = document.getElementById("mobile-menu");
+
+menuButton.addEventListener("click", () => {
+menu.style.display = menu.style.display === "block" ? "none" : "block";
+});
+
+menu.querySelectorAll("a").forEach(link => {
+link.addEventListener("click", () => menu.style.display = "none");
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add("visible");
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+// Footer year
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
